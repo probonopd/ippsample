@@ -3,13 +3,8 @@ compiler: gcc
 sudo: require
 dist: trusty
 
-before_install:
-    - # sudo add-apt-repository ppa:beineri/opt-qt591-trusty -y
-    - # sudo apt-get update -qq
-
 install:
     - sudo apt-get -y install autoconf build-essential avahi-daemon avahi-utils libavahi-client-dev libgnutls28-dev libjpeg-dev libnss-mdns libpng-dev zlib1g-dev
-    - # source /opt/qt*/bin/qt*-env.sh
 
 script:
   - ./configure --prefix=/usr
@@ -21,7 +16,6 @@ script:
   - mkdir -p ./appdir/usr/share/icons/hicolor/256x256/apps/ ; cp appimage/printer.png ./appdir/usr/share/icons/hicolor/256x256/apps/
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt*.AppImage
-  - # unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
 
