@@ -21,6 +21,7 @@ script:
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/ippproxy -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/ipptool -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage --appimage-extract
+  - rm ./appdir/AppRun ; cp appimage/AppRun appdir/ ; chmod a+x ./appdir/AppRun # Replace symlink with custom script
   - PATH=./squashfs-root/usr/bin:$PATH ./squashfs-root/usr/bin/appimagetool ./appdir/
 
 after_success:
