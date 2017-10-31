@@ -16,6 +16,7 @@ script:
   - mkdir -p ./appdir/usr/share/icons/hicolor/256x256/apps/ ; cp appimage/printer.png ./appdir/usr/share/icons/hicolor/256x256/apps/
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt*.AppImage
+  - ./linuxdeployqt*.AppImage --appimage-version
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/ippfind -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/bin/ippproxy -bundle-non-qt-libs
