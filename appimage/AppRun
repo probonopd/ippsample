@@ -7,6 +7,9 @@
 
 HERE="$(dirname "$(readlink -f "${0}")")"
 
+# https://github.com/istopwg/ippsample/blob/2c6a86046a5ef696792b6c22fd1bbeaef43647a8/config.h.in#L39-L51
+export CUPS_DATADIR="$HERE/usr/share/cups"
+
 if [ ! -z $APPIMAGE ] ; then
   BINARY_NAME=$(basename "$ARGV0")
   if [ -e "$HERE/usr/bin/$BINARY_NAME" ] ; then
