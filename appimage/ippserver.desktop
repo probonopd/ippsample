@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=ippserver        
+Name=ippserver
 Comment=Sample implementation of an IPP Server
 Exec=ippserver
 Icon=printer
