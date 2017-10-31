@@ -15,6 +15,9 @@ script:
   - ./configure --prefix=/usr
   - make -j$(nproc)
   - make BUILDROOT=$(readlink -f appdir) install ; find appdir/
+  - rm -rf appdir/usr/include/cups/ # Do not bundle developer stuff
+  - mkdir -p ./appdir/usr/share/applications/ ; cp appimage/ippserver.desktop ./appdir/usr/share/applications/
+  - mkdir -p ./appdir/usr/share/icons/hicolor/256x256/apps/ ; cp appimage/printer.png ./appdir/usr/share/icons/hicolor/256x256/apps/
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt*.AppImage
   - # unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
